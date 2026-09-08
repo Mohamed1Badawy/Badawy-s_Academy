@@ -1,0 +1,80 @@
+mkdocs-material
+
+site/
+__pycache__/
+.venv/
+
+site_name: منهجي
+site_description: موقع المنهج الدراسي
+site_url: https://USERNAME.github.io/REPO_NAME/
+
+theme:
+  name: material
+  language: ar
+  direction: rtl
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: التبديل للوضع الليلي
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: التبديل للوضع النهاري
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+# ==========================================
+# هنا الفهرس بتاعك — رتّب الفصول والمواضيع هنا
+# ==========================================
+nav:
+  - الرئيسية: index.md
+  - "الفصل ١: مقدمة":
+      - "الموضوع الأول": chapter-01-intro/topic-1.md
+      - "الموضوع الثاني": chapter-01-intro/topic-2.md
+  - "الفصل ٢: أساسيات":
+      - "الموضوع الأول": chapter-02-basics/topic-1.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang:
+        - ar
+
+# موقع المنهج
+
+مبني باستخدام MkDocs Material.
+
+## التشغيل محليًا
+```
+pip install -r requirements.txt
+mkdocs serve
+```
+ثم افتح: http://127.0.0.1:8000
+
+## إضافة موضوع جديد
+1. أضف ملف .md جديد داخل مجلد docs/ (داخل مجلد الفصل المناسب)
+2. أضف سطر له في قائمة nav داخل mkdocs.yml
+3. اعمل commit و push — الموقع هيتحدث تلقائيًا
